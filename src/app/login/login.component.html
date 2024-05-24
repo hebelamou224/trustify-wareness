@@ -1,0 +1,15 @@
+<div class="login-form">
+    <p>Connection à Trustify-wareness c'est free</p>
+    <p>NB: MDP = trustifytechnology</p>
+    <form (ngSubmit)="login()">
+        <div>
+          <label for="username">Nom d'utilisateur:</label>
+          <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Entrer votre nom complet" required>
+        </div>
+        <div>
+          <label for="password">Mot de passe:</label>
+          <input type="password" id="password" name="password" placeholder="Entrer: trustifytechnology" [(ngModel)]="password" required>
+        </div>
+        <button type="submit">Connexion</button>
+    </form>
+</div>

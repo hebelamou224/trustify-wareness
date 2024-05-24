@@ -1,0 +1,179 @@
+.quiz-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .correct-answer {
+    background-color: green;
+  }
+  
+  .incorrect-answer {
+    background-color: red;
+  }
+
+  .selected {
+    background-color: green; /* Couleur d'arrière-plan pour la réponse correcte */
+  }
+
+.options button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+  
+  .options button:active {
+    background-color: #1a1111; /* Couleur d'arrière-plan lorsque l'option est cliquée */
+  }
+  
+  .options button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .navigation {
+    text-align: right;
+  }
+  
+  .navigation button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .navigation button:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+  /* ================== */
+
+  .option-label {
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .radio-button {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]:checked + .radio-button {
+    background-color: #007bff;
+  }
+
+  /* Minuteur */
+
+  .timer {
+    font-size: 24px;
+    color: #000;
+    transition: color 0.3s ease; /* Ajouter une transition sur la couleur du texte */
+  }
+  
+  .timer.expired {
+    color: red; /* Changer la couleur du texte à rouge lorsque le temps est écoulé */
+  }
+
+
+  /* btn start */
+  .start-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Reponse a la question */
+  .feedback {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .correct-feedback {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .incorrect-feedback {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+
+  /* Result */
+
+  .result-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .result-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .result-text {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+
+  /* btn */
+
+  .back-to-quiz-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-to-quiz-button:hover {
+    background-color: #0056b3;
+  }
+  

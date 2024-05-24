@@ -1,0 +1,14 @@
+<div class="results">
+    <p>La liste de vos reponses</p>
+    <div *ngFor="let question of questions; let i = index" class="question-result">
+        <p class="question-text">{{ i + 1 }}. {{ question.question }}</p>
+        <p class="answer-text">Réponse correcte : {{ question.correctAnswer }}</p>
+        <p class="answer-text" [ngClass]="isAnswerCorrect(i) ? 'correct-answer' : 'incorrect-answer'">Votre réponse : {{ userAnswers[i] }}</p>
+    </div>
+    <p class="result-text">Nombre de réponses correctes : {{ score }}</p>
+    <p class="result-text">Nombre de réponses incorrectes : {{ totalQuestions - score }}</p>
+    <!-- <button class="back-to-quiz-button" >Retour au quiz</button>
+    <button class="back-to-quiz-button" >Reviser le cours</button> -->
+    <p-button label="Retour au quiz" (click)="redirectToQuizPage()" [rounded]="true" />&nbsp;&nbsp;
+    <p-button label="Reviser le cours" (click)="redirectToLearningPage()" [rounded]="true" />
+</div>

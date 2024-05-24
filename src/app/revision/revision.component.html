@@ -1,0 +1,20 @@
+<div class="list">
+    <p-button label="Tester votre connaissance" [raised]="true" (click)="redirectToQuizPage()" />
+    <h2>Liste des questionnaires pour révision</h2>
+
+    <div *ngFor="let questionnaire of questionnaires; let i = index">
+        <div class="c" style="margin-bottom: 10px;">
+            <p-card header="Question: {{ i + 1}}">
+                {{questionnaire.question}}
+                <p class="m-0">
+                    <li *ngFor="let option of questionnaires[currentQuestionIndex].options">
+                        <span>{{ option }}</span>
+                    </li>
+                    <span>Réponse correcte : {{ questionnaires[currentQuestionIndex].correctAnswer }}</span>
+                </p>
+            </p-card>
+        </div>
+    </div>
+  
+
+</div>

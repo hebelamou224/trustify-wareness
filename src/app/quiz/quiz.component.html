@@ -1,0 +1,55 @@
+<div class="quiz-container">
+
+    <div *ngIf="!gameStarted">
+      <button class="start-button" (click)="startGame()">Démarrer le jeu</button>
+    </div>
+
+    <div *ngIf="questions.length > 0; else noQuestions">
+      <div class="timer" [class]="getTimerClass()" [style.color]="getTimeRemainingPercentage() < 50 ? 'red' : 'green'">
+        Temps restant : {{ formatTimeRemaining() }}
+      </div>
+      <div class="question">
+        <h2>Question {{ currentQuestionIndex + 1 }}/{{ questions.length }}</h2>
+        <p>{{ questions[currentQuestionIndex].question }}</p>
+      </div>
+      <div class="options">
+        <!-- <button *ngFor="let option of questions[currentQuestionIndex].options" (click)="answerQuestion(option)">
+          {{ option }}
+        </button> -->
+        <!-- <button *ngFor="let option of questions[currentQuestionIndex].options"
+              [ngClass]="{ 'correct-answer': option === questions[currentQuestionIndex].correctAnswer,
+                           'incorrect-answer': option === userAnswer && option !== questions[currentQuestionIndex].correctAnswer }"
+              (click)="answerQuestion(option)">
+        {{ option }}
+        </button> -->
+        <!-- <button *ngFor="let option of questions[currentQuestionIndex].options"
+              [class.selected]="option === selectedOption"
+              (click)="answerQuestion(option)">
+          {{ option }}
+        </button> -->
+        <label *ngFor="let option of questions[currentQuestionIndex].options" class="option-label">
+          <input type="radio" [value]="option" [(ngModel)]="selectedOption" (change)="answerQuestion(option)" [disabled]="selectedResponse" [disabled]="!gameStarted">
+          <span class="radio-button"></span>
+          {{ option }}
+        </label>
+      </div>
+      <div *ngIf="gameStarted" class="navigation">
+        <button (click)="nextQuestion()" >Next</button>
+      </div>
+    </div>
+    <div class="feedback" *ngIf="showFeedback" [ngClass]="isCorrectAnswer ? 'correct-feedback' : 'incorrect-feedback'">
+      <p *ngIf="isCorrectAnswer">Bonne réponse!</p>
+      <p *ngIf="!isCorrectAnswer">Mauvaise réponse!</p>
+    </div>
+    <div *ngIf="shwoResult && !gameStarted" class="result-container">
+      <h2 class="result-title">Résultat</h2>
+      <p class="result-text">Nombre de réponses correctes : {{ score }}</p>
+      <p class="result-text">Nombre de réponses incorrectes : {{ getIncorrectAnswers() }}</p>
+      <button class="back-to-quiz-button" (click)="navigateToResultPage()">Voir tous les details</button>
+    </div>
+    <ng-template #noQuestions>
+      <p>No questions available.</p>
+    </ng-template>
+  </div>
+
+  
